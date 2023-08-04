@@ -60,7 +60,7 @@ To build our three-tier architecture, we leveraged various AWS services. These i
 - Create a bucket in AWS S3 pass it to parameter `bucket` in file `backend.tf` <br/>
 - Create a `Dynamodb` table with default values and `Partition key` as `LockID` and pass the table name to parameter `dynamodb_table` in file `backend.tf`<br/>
 - Please verify and update the AMI id in terraform.tfvars file. AWS changes the value frequently. So please go to EC2 console and check the AMI for `Amazon Linux 2` for 
-  the region you choose and update the value. In demo I kept is `us-west-2`.<br/>
+  the region you choose and update the value. In demo the region is `us-west-2` and the AMI is for `Amazon Linux 2` as of today.<br/>
 - Download/Clone the source code and run 'terraform init/plan/validate/apply'
 
 ##### Architecture Diagram

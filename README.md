@@ -2,7 +2,7 @@
 ##### Introduction
 
 In this #opensource project we will be sharing the experience of creating a Three-tier architecture in AWS using Terraform ([LAMP stack](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html)). All AWS Infrastructure implementation was done using offcial AWS Terraform modules.  The project aimed to create a scalable, secure, and high-performing web application environment. <br/>
-For Terraform users, the [Terraform Registry enables](https://registry.terraform.io/) the distribution of Terraform modules, which are reusable configurations. The Terraform Registry acts as a centralized repository for module sharing, making modules easier to discover and reuse. This project utilizes the offical Terraform modules<br/>
+For Terraform users, the [Terraform Registry enables](https://registry.terraform.io/) the distribution of [Terraform modules](https://developer.hashicorp.com/terraform/tutorials/modules/module), which are reusable configurations. The Terraform Registry acts as a centralized repository for module sharing, making modules easier to discover and reuse. This project utilizes the offical Terraform modules<br/>
 
 ##### Overall learnings
 - `Terraform Automation`: Experience the efficiency of infrastructure-as-code using Terraform. Rapidly deploy the complex Cloud architectures with ease.<br/>
@@ -59,7 +59,7 @@ To build our three-tier architecture, we leveraged various AWS services. These i
 - [AWS CLI configured with appropriate credentials](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) <br/>
 - Create a bucket in AWS S3 pass it to parameter `bucket` in file `backend.tf` <br/>
 - Create a `Dynamodb` table with default values and `Partition key` as `LockID` and pass the table name to parameter `dynamodb_table` in file `backend.tf`<br/>
-- Please verify and update the AMI id in terraform.tfvars file. AWS changes the value frequently. So please go to EC2 console and check the AMI for `Amazon Linux 2` for 
+- Please verify and update the AMI id in `terraform.tfvars` file. AWS changes the value frequently. So please go to EC2 console and check the AMI for `Amazon Linux 2` for 
   the region you choose and update the value. In demo the region is `us-west-2` and the AMI is for `Amazon Linux 2` as of today.<br/>
 - Download/Clone the source code and run 'terraform init/plan/validate/apply'
 
@@ -87,7 +87,7 @@ The Terraform configuration was organized into different modules for VPC, EC2, A
 
 With Terraform's declarative syntax, we were able to define our infrastructure as code. We created configuration files that specified the desired state of our AWS resources, including VPC, RDS database, security groups, and more. Terraform then took care of provisioning and managing these resources in a repeatable and consistent manner. The Terraform modules are elaborated below with benefits.
 
-If required we can also add a module folder and shift the respective resources tf files to that folder <br/>
+If required we can also add a module folder and shift the respective resources tf files to that folder. One last point - The modules used in the code are owned by AWS so I have version-locked it to ensure compatibility when the code is run.  <br/>
 
 **Handling sensitive data in Terraform modules** <br/>
 It is never a good practice to store sensitive information, such as access keys and passwords, in Terraform configuration files, where they could easily be exposed and shared into different configuration plans than they were intended for. Instead, a good practice is to create a file named `secrets.tfvars` to hold sensitive data, and place it in the root module folder in the top-level directory. This file should never be tracked in Git. Put the `secrets.tfvars` in `.gitignore` file. Declare two variables `secret_key` and `access_key` in variables.tf file and then assign `secret_key` and `access_key` values in `secrets.tfvars` file. Once done then run the commands `terraform plan -var-file="secrets.tfvars" -var-file="terraform.tfvars"` and `terraform apply -var-file="secrets.tfvars" -var-file="terraform.tfvars" -auto-approve`.
@@ -170,25 +170,25 @@ It is never a good practice to store sensitive information, such as access keys 
 ##### Best Practices
 Other than what mentioned earlier - below are some practices followed during the project :
 
- - `Terraform modules registry`: The project leverages the [Official Terraform module registry](https://registry.terraform.io/) to find and apply pre-built modules to 
+ - Terraform modules registry: The project leverages the [Official Terraform module registry](https://registry.terraform.io/) to find and apply pre-built modules to 
    provide a turn-key solutions. Other than this we can also use modules from the Terraform community. Open-source modules saves time, improves security, and give greater 
    confidence in project infrastructure. Importantly these reusable modules encourage best practices
  - [Modules](https://developer.hashicorp.com/terraform/language/modules/develop#standard-module-structure) : A Terraform module is a way of creating a template of a cloud 
    pattern, parameterizing, and reusing it. They are useful tools for promoting software abstraction and code reuse. Input variables (or Terraform variables, or just variables) are user-supplied values that parametrize Terraform modules without altering the source code. This project is built on modules to increase code 
    reusability and decrease code redundancy. Modules breaks down complex configurations into smaller configs for reusability and maintainability. It 
    streamlines the provisioning and management of infrastructure, resulting in more efficient and dependable operations.
- - `Open Source Modules` : We fully leveraged open source modules provided freely by Hashicorp. This helps the team to scale faster as every developer   
+ - Leverage Official Open Source Modules : We fully leveraged open source modules provided freely by Hashicorp. This helps the team to scale faster as every developer   
    is likely to be familiar with an open source module (unlike bespoke modules) resulting new staff enrolment to be quicker. Another big advantage is that development team 
    now can easily create opinionated modules from these open source modules which can serve a specific purpose (instead of starting from scratch). If they think these open 
    source modules to be too broad they can create in-house opinionated modules for specific use case. Open-source modules are highly configurable & easy to make more 
    configurable.
- - `Don’t Repeat Yourself (DRY)` : One of the principles of software engineering is DRY (don’t repeat yourself). The same applies to IaC. In this project we 
+ - Don’t Repeat Yourself (DRY) : One of the principles of software engineering is DRY (don’t repeat yourself). The same applies to IaC. In this project we 
    applied Modularization (official Terraform modules) to achieve DRY state.  
- - `Remote state storage`: The Terraform state files are stored in a remote location (AWS S3) to enable collaboration and ensure consistency.
+ - Remote state storage: The Terraform state files are stored in a remote location (AWS S3) to enable collaboration and ensure consistency.
  - This project uses proper naming conventions for resources to avoid naming conflicts.
  - Use version controls Git as single source of truth. We have stored Terraform configurations in a version control system (Github) to track changes and collaborate with 
    others.
- - `Leverage variables.tf & terraform.tfvars files` : Used variables to customize infrastructure and avoid hardcoding values in the configuration file. The naming 
+ - Leverage variables.tf & terraform.tfvars files : Used variables to customize infrastructure and avoid hardcoding values in the configuration file. The naming 
    conventions were also consistent as official terraform modules were used. Variable.tf and terraform.tfvars files are excellent for externalizing 
    configurations and passing values so they can be easily deployed across multiple environments. Everything that’s not a secret was put in tfvars files for all 
    inputs and then put them in source control (Github). <br/>

@@ -37,7 +37,7 @@ The blog post is a `comprehensive & prescriptive guide` to effectively using Ter
    that infrastructure follows AWS-recommended guidelines.<br/>
 -  `Immutable & mutable Infrastructure`: [Terraform is considered as an immutable infrastructure as code technology](https://www.hashicorp.com/resources/what-is-mutable-vs-immutable-infrastructure). For those who are unaware, immutable infrastructure is the concept of never performing updates in place. An immutable infrastructure never changes after its deployment. If an update occurs, it takes place by tearing down the old infrastructure (such as a server). It's the idea that once an infrastructure component is provisioned, it remains unchanged throughout its lifecycle. Any updates or changes result in the creation of a completely new instance. This approach can help to improve security, reliability, and cost-efficiency and is considered a key driver of stability and resilience in cloud environments. By contrast, with mutable infrastructure, existing resources are allowed to persist through inplace updates or patches instead of resources being deleted and re-created. It is an approach to infrastructure management where infrastructure resources can be modified after they have been created. This approach can be more flexible, but it can also be more difficult to manage and secure.<br/>
 
-#### Project Overview
+### Project Overview
 
 A Three-tier architecture is a widely adopted approach for building scalable web applications. It separates the application into three layers: presentation, application logic, and database. In this project, we utilized AWS services to create these layers and ensure scalability and high availability. <br/>
 
@@ -78,7 +78,7 @@ To build our three-tier architecture, we leveraged various AWS services. These i
     -  `Maintenance and Continuous Improvement`: Official modules are well-maintained and updated by the creators/experts incorporating new features & standards. 
         This ensures that customers gets benefited & stays up-to-date with the latest AWS features, industry standards, best practices and enhancements.<br/>
     
-##### Project Setup and Prerequisites
+### Project Setup and Prerequisites
 - AWS account with necessary permissions <br/>
 - [Terraform installed on local machine](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) <br/>
 - [AWS CLI configured with appropriate credentials](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) <br/>
@@ -88,7 +88,7 @@ To build our three-tier architecture, we leveraged various AWS services. These i
   the region you choose and update the value. In demo the region is `us-west-2` and the AMI is for `Amazon Linux 2` as of today.<br/>
 - Download/Clone the source code and run 'terraform init/plan/validate/apply'
 
-##### Architecture Diagram
+### Architecture Diagram
 Below is the sample architecture diagram.<br/>
 
 ![image](https://github.com/hellosomraj/TF3TierArch/assets/140711847/bcf91b9a-ff73-4c9f-b3fd-0bcac81805af)
@@ -129,11 +129,11 @@ It is never a good practice to store sensitive information, such as access keys 
 
  - Module `terraform-aws-modules/autoscaling/aws` : [This Terraform module creates Auto Scaling resources on AWS](https://registry.terraform.io/modules/terraform-aws-modules/autoscaling/aws/latest)
 
-##### Deployment Process
+### Deployment Process
 1. Once deployed, we accessed the application through the ALB's DNS name. <br/>
 2. To access the admin page we navigated to < < ALB DNS > >/phpinfo.php
 
-##### Best Practices
+### Best Practices
 Other than what mentioned earlier - below are some practices followed during the project :
 
  - [Modularization to reduce technical debt](https://developer.hashicorp.com/terraform/language/modules/develop#standard-module-structure) : The code is clean 
@@ -173,11 +173,11 @@ When working with Terraform and IaC, there are several strategies/techniques and
     * When working with `Terraform and IaC`, it's important to understand the benefits of `immutability` and when to consider adopting an immutable 
       infrastructure approach. <br/>
 
-##### Conclusion
+### Conclusion
 
 Setting up a Three-tier architecture in AWS using Terraform & LAMP stack was an insightful & rewarding experience.  The combination of these technologies allowed us to achieve scalability, security, and reliability for our web application. It allowed us to gain a deeper understanding of AWS services and infrastructure as code practices. I hope this blog post inspires others to explore this architecture and its benefits.
 
-#### Appendix/References
+### Appendix/References
 
 Below are some additional resources and references for further learning: <br/>
 

@@ -8,7 +8,8 @@ The blog post is a `comprehensive & prescriptive guide` to effectively using Ter
 
 `To summarize - this blog is a prescriptive guidance for anyone working (or going to start working) in Terraform projects & wants efficient infrastructure management`. <br/>
 
-#### Overall learnings
+### Overall learnings<br/>
+-  `Strategy/Techniques and best practices` which can be followed in a Terraform/IaC projects.<br/>
 - `Terraform Automation, efficient resource management & predictable infrastructure`: Experience the efficiency of infrastructure-as-code using Terraform. 
    Rapidly deploy the complex Cloud architectures with ease. One of the key benefits of Terraform is its idempotency, which ensures that infrastructure 
    deployments are consistent, predictable, and efficient. This also reduces operational risk, making it an ideal choice for production environments.<br/>
@@ -171,37 +172,6 @@ When working with Terraform and IaC, there are several strategies/techniques and
        expected. Tools like TFLint are also very useful. <br/>
     * When working with `Terraform and IaC`, it's important to understand the benefits of `immutability` and when to consider adopting an immutable 
       infrastructure approach. <br/>
-
-##### Immutable vs Mutable Infrastructure : Points to consider
-The correct approach to infrastructure management will depend on the specific needs of the organization. However, immutable infrastructure is often preferred for production environments where security and reliability are critical. Terraform itself does not inherently make infrastructure immutable or mutable; it's a tool that allows to define, provision and manage infrastructure as code (IaC). Knowing when to consider immutable infrastructure can be difficult, and there is no one clearly defined cutoff or inflection point. It's always important to consider the specific use cases, workloads, needs and constraints of project when deciding on a  strategy. Below points can be considered :
-Immutable infrastructure can be a good choice for organizations that need to:
-   * Increase reliability <br/>
-   * Cost-efficiency: Immutable infrastructure can help to reduce costs by eliminating the need to patch & update infrastructure resources. This is because 
-     each resource is replaced when it needs to be updated, rather than being patched in place. However sometimes resource churn can increase operational 
-     overhead/concerns <br/>
-   * Complex systems & need for Simplify operations : Immutability is the Answer to Complexity. Complex systems often benefit from the predictability of       
-     immutable infrastructure. <br/>
-   * Frequent Updates (dynamic vs static) : In environments with frequent updates and changes, immutability simplifies maintenance and ensures each change 
-     results in a fresh, validated resource. For simpler, less dynamic environments where updates and changes are infrequent, mutable infrastructure may be more 
-     practical.<br/>
-   * Security-First Environments/ Improve security: For security-conscious environments, immutability facilitates quick response to vulnerabilities by replacing 
-     resources with patched versions.
-   * Resource Churn: Frequent replacement of resources can lead to resource churn and increased operational overhead.<br/>
-   * Data Management: Immutable infrastructure can be challenging when dealing with stateful data, requiring proper planning for data persistence and 
-     migration.For immutable infrastructure to be effective, data must be externalized. This could mean storing data on an external shared database, or on 
-     software-defined storage.<br/>
-   * Stateful Workloads: In scenarios with stateful workloads or data-intensive applications, managing resources in place may be more efficient.(mutable infra)<br/>
-   * Immutable infrastructure is good choice when the system heavily relies on technologies that provide rapid and cheap provisioning of architectural 
-     components. This approach is particularly beneficial in cloud computing environments. <br/>
-   * Maturity needed: Implementing immutable infrastructure requires a high degree of maturity in customers business processes and network, server, and storage 
-     resources.<br/>
-   * Mutable infrastructure is a viable choice when it is expensive to replace servers, and there's a need to keep the servers in operation with minimal 
-     downtime. This is common with physical servers and traditional server-based infrastructure or stateful workloads. <br/>
-   * Hybrid Approaches: In some cases, a hybrid approach may be suitable, combining both mutable and immutable strategies as needed.<br/>
-   * In conclusion, the choice between mutable and immutable infrastructure depends on multiple factors like the nature of servers (i.e., physical or 
-     virtual), ability to manage data externally, cost, and the maturity level of business processes etc.. Both approaches have their pros and cons. The 
-     general rule is, if customer frequently depend on cloud computing and virtual servers, an immutable infrastructure mostly would be good. However, if there 
-     are physical servers where the cost of replacing a server is very high, a mutable infrastructure might be more suitable. <br/>
 
 ##### Conclusion
 

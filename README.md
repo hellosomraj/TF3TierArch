@@ -1,15 +1,25 @@
 ### #Opensource Project to set up a Three-tier Architecture in AWS using Terraform & official AWS modules. 
 ### _Introduction & Purpose_
 
-In this `#opensource` project we will go through the experience of creating a `Complex Three-tier Cloud architecture (AWS) using Terraform` ([LAMP stack](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html)). All AWS Infrastructure implementation was done using offcial AWS Terraform modules.  The project aimed to create a scalable, secure, and high-performing web application environment with real-world best practices & realistic patterns. <br/><br/>
-The blog post is a `comprehensive & prescriptive guide` to effectively using Terraform to create a complex Cloud Architectures. Everything is `#opensource` so feel free to leverage. `It is written to help people at all levels and roles, from junior developers to CxOs`, to learn about best practices and ways to effectively use IaC in a Digital Transformation journey. It would also serve as a valuable resource/guide for `architects and project managers` looking to impress existing customers with their knowledge of IaC, automation-first and security-first approaches. They can leverage the blog insights to supercharge their projects and client engagements. The objective insights and real-world best practices mentioned in the blog can also be directly put in proposals/RFP's. `The automation-first, security-first approach will elevate the proposals` and create a positive enviornment. <br/>
+In this advanced Terraform `#opensource` project we will go through the experience of creating a `Complex Three-tier Cloud architecture (AWS) using Terraform` ([LAMP stack](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html)) and best practices to follow in any Terraform project. All AWS Infrastructure implementation was done using offcial AWS Terraform modules.  The project aimed to create a scalable, secure, and high-performing web application environment with real-world best practices & realistic patterns. <br/><br/>
 
-`For aspiring developers, it's your playground` — a chance to the download code, tinker, and master Terraform. Explore a treasure trove of free, top-quality resources in the `Appendix/References section`, including expert YouTube courses.
+This blog post is intended to help people at all levels and roles. This is a comprehensive & prescriptive guide to effectively using Terraform to create a complex Cloud Architectures. Everything is `#opensource` so feel free to leverage.  <br/>
 
-`To summarize - this blog is a prescriptive guidance for anyone working (or going to start working) in Terraform projects & wants efficient infrastructure management`. <br/>
+### _Who should use this guide?_
+This guide is intended to help people at all levels and roles. I have applied many of these techniques/strategies in real-time projects & have witnessed first-hand the positive impact they can have on project outcomes.<br/>
 
-### _Overall learnings_ <br/>
--  `Strategy/Techniques and best practices` which can be followed in a Terraform/IaC projects.<br/>
+  * This blog would serve as a valuable resource/guide for `architects and project managers` looking to impress existing customers with their knowledge of IaC, `automation-first` and
+    `security-first` approaches. They can leverage the blog insights strenthen their customer relationships, supercharge their projects and win additional work. <br/>
+  * The objective insights and real-world best practices mentioned in the blog can also be put in proposals/RFP's. `The automation-first, security-first approach will elevate 
+     the proposals` and create a positive enviornment. The insights of the blog will help to develop more targeted and effective proposals that are cost-efficient. I have mentioned a sample storytelling 
+     strategy and approach at the end of this blog which they can leverage.<br/>
+  * `For developers, it's playground` — a chance to the download code, experiment, and master Terraform. Explore the free, top-quality resources in the `Appendix/References section`, 
+     including expert YouTube courses.<br/>
+
+To summarize - this blog is a prescriptive guidance for anyone working (or going to start working) in Terraform projects & wants efficient infrastructure management. <br/>
+
+### _Overall learnings_
+-  `Strategy/Techniques/guidelines` and best practices which can be followed in a Terraform/IaC projects.
 - `Terraform Automation, efficient resource management & predictable infrastructure`: Experience the efficiency of infrastructure-as-code using Terraform. 
    Rapidly deploy the complex Cloud architectures with ease. One of the key benefits of Terraform is its idempotency, which ensures that infrastructure 
    deployments are consistent, predictable, and efficient. This also reduces operational risk, making it an ideal choice for production environments.<br/>
@@ -66,7 +76,8 @@ To build our three-tier architecture, we leveraged various AWS services. These i
     - `Simplicity & consitency`: The official Terraform modules provide a significant level of convenience, pre-configuration & and consistent patterns for 
         infrastructure provisioning which helps accelerate the development and deployment process. <br/>
     - `Documentation and versioning` : these remote modules are very well documented and versioned. Anyone new can easily scale up & be productive at the 
-       earliest.<br/>
+       earliest. Documentation isn't an afterthought; it's an ally in troubleshooting, knowledge sharing, and welcoming new team members into the ecosystem. These modules 
+       are well documented and will not only make things simple but reduce cost without compromising on quality.<br/>
     -  `Cost optimization & benefits which can be passed to customers` : AWS Terraform modules are designed to leverage AWS services in an optimized manner.
         Official Terraform AWS modules helps reduce efforts and costs of implementation which can be passed to customers. We can save a lot of time by using 
         these open source modules instead of writing comparable code ourselves; all it takes is learning how to use the module interface. Official modules are 
@@ -89,11 +100,9 @@ To build our three-tier architecture, we leveraged various AWS services. These i
 - Download/Clone the source code and run 'terraform init/plan/validate/apply'
 
 ### _Architecture Diagram_
-Below is the sample architecture diagram.<br/>
+Below is the sample architecture diagram.
 
-![image](https://github.com/hellosomraj/TF3TierArch/assets/140711847/bcf91b9a-ff73-4c9f-b3fd-0bcac81805af)
-
-
+![image](https://github.com/somrajroy/AWS3TierArchitecturewithTFModules/assets/92582005/e331b49b-5e6f-48ae-8fb2-a76a02adb450)
 <br/>
 
 **Terraform Configuration** <br/>
@@ -151,8 +160,8 @@ Other than what mentioned earlier - below are some practices followed during the
  - `Leverage variables.tf & terraform.tfvars files` : Used variables to customize infrastructure & avoid hardcoding values in the configuration file. These files 
     are excellent for externalizing configurations and passing values so they can be easily deployed across multiple environments. 
 
-### _Guidelines on the  strategies and approaches while working with Terraform and Infrastructure as Code_.
-When working with Terraform and IaC, there are several strategies/techniques and best practices that can help manage infrastructure effectively. Here are some  points which can be considered. However the key to effectively using Terraform and IaC is not just about writing the code but also about managing it properly. By following the below practices, customers can ensure a well-structured, standardized, and efficient Terraform infrastructure management process. <br/><br/>
+### _Guidelines/strategies/approaches while working with Terraform and Infrastructure as Code._
+When working with Terraform and IaC, there are several strategies/techniques and best practices that can help manage infrastructure effectively. Here are some  points which can be considered. These guidelines are based on best practices and experience from the field and are applicable to all types of Terraform projects, regardless of their complexity or size. They have been proven to be effective in helping organizations of all sizes manage their infrastructure effectively with Terraform. These are not just for new Terraform projects. They can also be applied to existing projects to help improve their structure, readability, and maintainability. <br/><br/>
     * `Solid Foundation`: Before diving into Terraform, take the time to understand the basics of Infrastructure as Code (IaC). Get familiarized with the 
       principles and benefits of IaC to ensure a smooth transition to Terraform.<br/>
     * `Clear Objective, plan and design` : Invest time planning and designing the infrastructure. A well-thought-out architecture is the foundation of a 
@@ -173,11 +182,51 @@ When working with Terraform and IaC, there are several strategies/techniques and
     * When working with `Terraform and IaC`, it's important to understand the benefits of `immutability` and when to consider adopting an immutable 
       infrastructure approach. <br/>
 
-### Conclusion
+### _Immutable vs Mutable Infrastructure : Points to consider_
+The correct approach to infrastructure management will depend on the specific needs of the organization. However, immutable infrastructure is often preferred for production environments where security and reliability are critical. Terraform itself does not inherently make infrastructure immutable or mutable; it's a tool that allows to define, provision and manage infrastructure as code (IaC). Knowing when to consider immutable infrastructure can be difficult, and there is no one clearly defined cutoff or inflection point. It's always important to consider the specific use cases, workloads, needs and constraints of project when deciding on a  strategy. Below points can be considered :
+Immutable infrastructure can be a good choice for organizations that need to:
+   * Increase reliability <br/>
+   * Cost-efficiency: Immutable infrastructure can help to reduce costs by eliminating the need to patch & update infrastructure resources. This is because 
+     each resource is replaced when it needs to be updated, rather than being patched in place. However sometimes resource churn can increase operational 
+     overhead/concerns <br/>
+   * Complex systems & need for Simplify operations : Immutability is the Answer to Complexity. Complex systems often benefit from the predictability of       
+     immutable infrastructure. <br/>
+   * Frequent Updates (dynamic vs static) : In environments with frequent updates and changes, immutability simplifies maintenance and ensures each change 
+     results in a fresh, validated resource. For simpler, less dynamic environments where updates and changes are infrequent, mutable infrastructure may be more 
+     practical.<br/>
+   * Security-First Environments/ Improve security: For security-conscious environments, immutability facilitates quick response to vulnerabilities by replacing 
+     resources with patched versions.
+   * Resource Churn: Frequent replacement of resources can lead to resource churn and increased operational overhead.<br/>
+   * Data Management: Immutable infrastructure can be challenging when dealing with stateful data, requiring proper planning for data persistence and 
+     migration.For immutable infrastructure to be effective, data must be externalized. This could mean storing data on an external shared database, or on 
+     software-defined storage.<br/>
+   * Stateful Workloads: In scenarios with stateful workloads or data-intensive applications, managing resources in place may be more efficient.(mutable infra)<br/>
+   * Immutable infrastructure is good choice when the system heavily relies on technologies that provide rapid and cheap provisioning of architectural 
+     components. This approach is particularly beneficial in cloud computing environments. <br/>
+   * Maturity needed: Implementing immutable infrastructure requires a high degree of maturity in customers business processes and network, server, and storage 
+     resources.<br/>
+   * Mutable infrastructure is a viable choice when it is expensive to replace servers, and there's a need to keep the servers in operation with minimal 
+     downtime. This is common with physical servers and traditional server-based infrastructure or stateful workloads. <br/>
+   * Hybrid Approaches: In some cases, a hybrid approach may be suitable, combining both mutable and immutable strategies as needed.<br/>
+   * In conclusion, the choice between mutable and immutable infrastructure depends on multiple factors like the nature of servers (i.e., physical or 
+     virtual), ability to manage data externally, cost, and the maturity level of business processes etc.. Both approaches have their pros and cons. The 
+     general rule is, if customer frequently depend on cloud computing and virtual servers, an immutable infrastructure mostly would be good. However, if there 
+     are physical servers where the cost of replacing a server is very high, a mutable infrastructure might be more suitable. <br/>
 
-Setting up a Three-tier architecture in AWS using Terraform & LAMP stack was an insightful & rewarding experience.  The combination of these technologies allowed us to achieve scalability, security, and reliability for our web application. It allowed us to gain a deeper understanding of AWS services and infrastructure as code practices. I hope this blog post inspires others to explore this architecture and its benefits.
+### _Sample story telling formula/strategy_
+Its a 5 point strategy but feel free to edit : <br>
+   * Name the enemy (in classic terms this is the problem) : Here pain, problems, obstacles needs to be identified. It can be made real and vivid as possible. Customers are most probably tired of dealing with 
+     slow, unreliable infrastructure that hinders business growth. The enemy of progress is outdated, inefficient infrastructure that fails to keep up with the demands of modern businesses. Expertise and experience to overcome them and deliver exceptional results. <br/>
+   * Intensify the urgency : Is the problem getting bigger as time goes on ? What forces are making it worse ? How will the problem get worse ? Why is the problem so bad ?<br>
+   * Paint the promised land : Future cast how the world would look for them. Give reason(s) to come along on the ride with you <br>
+   * Explain away the obstacles : Outline the obstacles and show how they can be solved.<br>
+   * Win customers over with evidence : Evidence to back it up. This blog post on Terraform and Infrastructure as Code outlines the approach and provides real-world example of how we have helped customers 
+     achieve their goals. You can help them to take their infrastructure to the next level and drive business forward.<br>
+### _Conclusion_
 
-### Appendix/References
+Setting up a Three-tier architecture in AWS using Terraform & LAMP stack was an insightful & rewarding experience.  The combination of these technologies allowed us to achieve scalability, security, and reliability for our web application. It allowed us to gain a deeper understanding of AWS services and infrastructure as code practices. I hope this blog post inspires others to explore this architecture and its benefits.  `As someone who has applied many of these points (strategies/best practices) in production (or real-time) projects, I can attest to their effectiveness and the value they will bring to customers.` <br/>
+
+### _Appendix/References_
 
 Below are some additional resources and references for further learning: <br/>
 
